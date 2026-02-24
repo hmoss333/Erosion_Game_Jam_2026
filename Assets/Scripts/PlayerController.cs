@@ -1,29 +1,129 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using NaughtyAttributes;
+using UnityEngine.UI;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
-    public enum State { idle, move, interact }
-    public State state;
-    [SerializeField] float speed;
-    [SerializeField] float interactDist;
+    public static PlayerController instance;
 
+    public enum States { idle, interacting };
+    public States state;
+
+    [SerializeField] Transform camTransform;
+    [SerializeField] float mouseSensitivity = 3f;
+    [SerializeField] float checkDist = 10f;
+    [SerializeField] float speed;
+    [SerializeField] LayerMask layer;
+    public InteractObject interactObj { get; private set; }
+
+    public bool hasDocument { get; private set; }
+
+
+    Rigidbody rb;
+    Vector2 viewPos;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (instance == null)
+            instance = this;
+        else
+            Destroy(this);
+
+        rb = GetComponent<Rigidbody>();
+        state = States.idle;
+        hasDocument = false;
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (state == States.idle)
+        {
+            UpdateLook();
+            UpdateMovement();           
+        }
+
+        if (state != States.interacting)
+        {
+            InteractCheck();
+
+            if (Input.GetMouseButtonUp(0)
+                && interactObj != null)
+            {
+                interactObj.Interact();
+            }
+        }
+        else
+        {
+            interactObj = null;
+        }
+
+        //cursorImage.enabled = state != States.interacting;
+        //documentPrefab.SetActive(hasDocument);
     }
 
-    public void SetState(State setState)
+    void UpdateLook()
+    {
+        viewPos.x += Input.GetAxis("Mouse X") * mouseSensitivity / 2f;
+        viewPos.y += Input.GetAxis("Mouse Y") * mouseSensitivity / 2f;
+
+        viewPos.y = Mathf.Clamp(viewPos.y, -89f, 89f);
+
+        camTransform.localRotation = Quaternion.Euler(-viewPos.y, 0, 0);
+        transform.localRotation = Quaternion.Euler(0, viewPos.x, 0);
+    }
+
+    void UpdateMovement()
+    {
+        float horizontal = Input.GetAxisRaw("Horizontal");
+        float vertical = Input.GetAxisRaw("Vertical");
+        rb.velocity = transform.right * horizontal + transform.forward * vertical;
+        rb.velocity *= speed;
+    }
+
+    void InteractCheck()
+    {
+        Ray ray = new Ray(camTransform.position, camTransform.forward);
+        RaycastHit hit;
+
+        if (state != States.interacting)
+        {
+            if (Physics.Raycast(ray, out hit, checkDist, layer))
+            {
+                try
+                {
+                    interactObj = hit.transform.gameObject.GetComponent<InteractObject>();
+                    if (interactObj.enabled)
+                    {
+                        interactObj.highlighted = true;
+                        Renderer R = hit.collider.GetComponent<Renderer>();
+                        Outline OL = R.GetComponent<Outline>();
+                        if (OL == null) // if no script is attached, attach one
+                        {
+                            OL = R.gameObject.AddComponent<Outline>();
+                        }
+                    }
+                }
+                catch (Exception e)
+                {
+                    print(e);
+                }
+            }
+            else
+            {
+                interactObj = null;
+            }
+        }
+    }
+
+    public void SetState(States setState)
     {
         state = setState;
     }
