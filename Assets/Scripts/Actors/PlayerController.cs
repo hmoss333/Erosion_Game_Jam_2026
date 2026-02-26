@@ -100,7 +100,7 @@ public class PlayerController : MonoBehaviour
                 try
                 {
                     interactObj = hit.transform.gameObject.GetComponent<InteractObject>();
-                    if (interactObj.enabled)
+                    if (interactObj.active)
                     {
                         interactObj.highlighted = true;
                         Renderer R = hit.collider.GetComponent<Renderer>();
