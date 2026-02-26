@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float checkDist = 10f;
     [SerializeField] float speed;
     [SerializeField] LayerMask layer;
-    public InteractObject interactObj { get; private set; }
+    public InteractObject interactObj;// { get; private set; }
 
     public bool hasDocument { get; private set; }
 

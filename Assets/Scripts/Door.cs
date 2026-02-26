@@ -9,8 +9,10 @@ public class Door : InteractObject
     bool openDoor;
 
 
-    private void Update()
+    public override void Update()
     {
+        base.Update();
+
         if (openDoor)
         {
             doorRotation.transform.Rotate(0.0f, openRotation * Time.deltaTime, 0.0f, Space.Self);
