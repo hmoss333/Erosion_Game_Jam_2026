@@ -5,15 +5,23 @@ using UnityEngine;
 
 public class RadioLock : InteractObject
 {
-    [SerializeField] Light light;
-    [SerializeField] Color l_active, l_inactive;
+    [SerializeField] private GameObject lightObj;
+    private Material lightMat;
+    [SerializeField] private Color l_active, l_inactive;
 
+
+    private void Start()
+    {
+        lightMat = lightObj.GetComponent<Renderer>().material;
+    }
 
     public override void Update()
     {
         base.Update();
 
-        light.color = active ? l_active : l_inactive; 
+        Color setColor = new Color();
+        setColor = active ? l_active : l_inactive;
+        lightMat.SetColor("_EmissionColor", setColor);
     }
 
     public override void Activate()

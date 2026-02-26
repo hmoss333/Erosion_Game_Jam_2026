@@ -307,7 +307,8 @@ MonoBehaviour:
   m_OnTrigger:
     m_PersistentCalls:
       m_Calls: []
-  light: {fileID: 0}
+  lightObj: {fileID: 3682428674922333436}
+  lightMat: {fileID: 0}
   l_active: {r: 0, g: 1, b: 0.028357267, a: 1}
   l_inactive: {r: 1, g: 0, b: 0, a: 1}
 --- !u!65 &8784339233990696269
