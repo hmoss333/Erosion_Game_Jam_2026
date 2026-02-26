@@ -15,4 +15,10 @@ public class RadioLock : InteractObject
 
         light.color = active ? l_active : l_inactive; 
     }
+
+    public override void Activate()
+    {
+        base.Activate();
+        m_OnTrigger.Invoke();
+    }
 }
