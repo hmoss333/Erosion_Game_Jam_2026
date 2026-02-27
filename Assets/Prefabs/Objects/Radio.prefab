@@ -2019,8 +2019,9 @@ MonoBehaviour:
   arrowDefault: {r: 0.6784314, g: 0.6784314, b: 0.6784314, a: 0.49019608}
   arrowActive: {r: 0.68235296, g: 0.972549, b: 1, a: 0.49019608}
   currentFrequency: 35
+  targetFrequency: 0
   radioText: {fileID: 986061863756267454}
-  rotateSpeed: 2
+  rotateSpeed: 5
   audioSource: {fileID: 279808582738888007}
   targetAudio: {fileID: 0}
   staticAudio: {fileID: 0}

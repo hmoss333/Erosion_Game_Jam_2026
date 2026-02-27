@@ -16,10 +16,7 @@ public class Antenna : InteractObject
 
     private void Start()
     {
-        targetValue = Random.Range(4.5f, 10f);
-        miniGameSlider.maxValue = 10f;
-        audioSource = GetComponent<AudioSource>();
-        audioSource.clip = activateClip;
+        InitializeAntenna();
     }
 
     private void Update()
@@ -58,6 +55,15 @@ public class Antenna : InteractObject
         }
 
         miniGameUI.SetActive(interacting && !triggered);
+    }
+
+    public void InitializeAntenna()
+    {
+        triggered = false;
+        targetValue = Random.Range(4.5f, 10f);
+        miniGameSlider.maxValue = 10f;
+        audioSource = GetComponent<AudioSource>();
+        audioSource.clip = activateClip;
     }
 
     public override void Interact()

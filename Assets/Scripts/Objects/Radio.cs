@@ -41,6 +41,7 @@ public class Radio : InteractObject
 
     public void InitializeRadio()
     {
+        active = false;
         interacting = false;
         triggered = false;
         audioSource.clip = staticAudio;
