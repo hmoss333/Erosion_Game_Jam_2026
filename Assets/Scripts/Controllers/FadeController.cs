@@ -38,6 +38,18 @@ public class FadeController : MonoBehaviour
             fadeTextRoutine = StartCoroutine(FadeText(fadeGUI, aValue, aTime));
     }
 
+    public void SimpleFade(float aValue)
+    {
+        if (fadeRoutine == null)
+            fadeRoutine = StartCoroutine(FadeTo(aValue, 3f));
+    }
+
+    public void InstantSet(float aValue)
+    {
+        Color setColor = new Color(objectToFade.color.r, objectToFade.color.g, objectToFade.color.b, aValue);
+        objectToFade.color = setColor;
+    }
+
     IEnumerator FadeTo(float aValue, float aTime)
     {
         isFading = true;

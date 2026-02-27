@@ -47,6 +47,7 @@ public class TapeRecorder : InteractObject
         active = false;
         DialogueController.instance.UpdateText(string.Empty, false);
         PlayerController.instance.SetState(PlayerController.States.idle);
+        playRecordingRoutine = null;
     }
 }
 

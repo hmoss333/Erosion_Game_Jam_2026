@@ -6,8 +6,13 @@ public class Door : InteractObject
 {
     [SerializeField] GameObject doorRotation;
     [SerializeField] float openRotation = 170.0f;
+    BoxCollider collider;
     bool openDoor;
 
+    private void Start()
+    {
+        collider = GetComponent<BoxCollider>();
+    }
 
     public override void Update()
     {
@@ -29,8 +34,14 @@ public class Door : InteractObject
             base.Interact();
             Activate();
             openDoor = true;
-            BoxCollider collider = GetComponent<BoxCollider>();
             collider.enabled = false;
         }
+    }
+
+    public void ResetDoor()
+    {
+        active = false;
+        collider.enabled = true;
+        doorRotation.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
     }
 }
