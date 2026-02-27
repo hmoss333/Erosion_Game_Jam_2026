@@ -12,7 +12,7 @@ public class Radio : InteractObject
     [SerializeField] SpriteRenderer arrowLeft, arrowRight;
     [SerializeField] Color arrowDefault, arrowActive;
     [SerializeField] [Range(30, 120)] float currentFrequency; //Use LF (low frequency) band for radio stations
-    public float targetFrequency { get; private set; } //public in order to display frequency on documents
+    [SerializeField] float targetFrequency;// { get; private set; } //public in order to display frequency on documents
 
     [SerializeField] TMP_Text radioText;
     [SerializeField] float rotateSpeed;
@@ -48,6 +48,7 @@ public class Radio : InteractObject
         audioSource.Play();
         currentFrequency = 36.9f;
         targetFrequency = Random.Range(30.0f, 120.0f);
+        GameplayController.instance.UpdateDocumentText(targetFrequency.ToString("F2") + "kHz");
     }
 
     public override void Update()

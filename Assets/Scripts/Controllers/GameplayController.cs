@@ -3,13 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using System.Linq;
+using TMPro;
 
 public class GameplayController : MonoBehaviour
 {
     public static GameplayController instance;
     [SerializeField] GameObject[] environmentalObjs;
     [SerializeField] Material[] environmentalMats;
-    public int cycleNum { get; private set; }   
+    public string doorCode { get; private set; }
+    public int cycleNum { get; private set; }
+    [SerializeField] TMP_Text documentText;
+
     [Header("Final Cycle Triggers")]
     public UnityEvent m_OnTrigger = new UnityEvent();
 
@@ -23,6 +27,7 @@ public class GameplayController : MonoBehaviour
 
         environmentalObjs = FindGameObjectsInLayer(7);
         cycleNum = 0;
+        GenerateNewCode(); //Generate a random code at the start of a session
         FadeController.instance.StartFade(0.0f, 3f);
     }
 
@@ -48,7 +53,7 @@ public class GameplayController : MonoBehaviour
     {
         cycleNum++;
 
-        foreach(GameObject envObj in environmentalObjs)
+        foreach (GameObject envObj in environmentalObjs)
         {
             List<Material> mats = envObj.GetComponent<Renderer>().materials.ToList();
             mats[0] = environmentalMats[cycleNum - 1];
@@ -59,5 +64,24 @@ public class GameplayController : MonoBehaviour
         {
             m_OnTrigger.Invoke();
         }
+    }
+
+    private void GenerateNewCode()
+    {
+        doorCode = string.Empty;
+
+        for (int i = 0; i < 4; i++)
+        {
+            int randChar = Random.Range(0, 10);
+            doorCode += randChar;
+        }
+
+        print($"New door code: {doorCode}");
+    }
+
+    public void UpdateDocumentText(string docText)
+    {
+        documentText.text = docText;
+        print("Updated document text");
     }
 }
