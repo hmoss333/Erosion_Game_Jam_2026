@@ -21,14 +21,13 @@ public class GameplayController : MonoBehaviour
             instance = this;
 
         cycleNum = 0;
-        GenerateNewCode();
+        GenerateNewCode(); //Generate a random code at the start of a session
         FadeController.instance.StartFade(0.0f, 3f);
     }
 
     public void IncrementCycle()
     {
         cycleNum++;
-        GenerateNewCode();
 
         if (cycleNum > 3)
         {

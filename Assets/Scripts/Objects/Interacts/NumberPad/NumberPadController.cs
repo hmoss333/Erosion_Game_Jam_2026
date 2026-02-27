@@ -35,7 +35,7 @@ public class NumberPadController : MonoBehaviour
 
     public void InitializeLock()
     {
-        code = GameplayController.instance.doorCode; //randomly generate from GameplayController class
+        code = GameplayController.instance.doorCode; //randomly generated from GameplayController class
         tempCode = string.Empty;
         hasTriggered = false;
     }

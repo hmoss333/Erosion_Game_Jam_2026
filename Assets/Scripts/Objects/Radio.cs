@@ -94,6 +94,8 @@ public class Radio : InteractObject
                         audioSource.clip = targetAudio;
                         audioSource.Play();
                     }
+
+                    DialogueController.instance.UpdateText(GameplayController.instance.doorCode[GameplayController.instance.cycleNum].ToString(), true);
                 }
             }
             else
@@ -105,17 +107,17 @@ public class Radio : InteractObject
 
     public override void Interact()
     {
-            base.Interact();
-            interacting = !interacting;
-            PlayerController.instance.SetState(interacting ? PlayerController.States.interacting : PlayerController.States.idle);
+        base.Interact();
+        interacting = !interacting;
+        PlayerController.instance.SetState(interacting ? PlayerController.States.interacting : PlayerController.States.idle);
 
-            //if (interacting)
-            //{
-            //    CamFocusController.instance.FocusTarget(focusPoint);
-            //}
-            //else
-            //{
-            //    CamFocusController.instance.FocusReset();
-            //}
+        //if (interacting)
+        //{
+        //    CamFocusController.instance.FocusTarget(focusPoint);
+        //}
+        //else
+        //{
+        //    CamFocusController.instance.FocusReset();
+        //}
     }
 }
