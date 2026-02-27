@@ -57,7 +57,7 @@ public class Antenna : InteractObject
                 miniGameLight.GetComponent<Renderer>().material.color = Color.red;
         }
 
-        miniGameUI.SetActive(active && interacting && !triggered);
+        miniGameUI.SetActive(interacting && !triggered);
     }
 
     public override void Interact()
