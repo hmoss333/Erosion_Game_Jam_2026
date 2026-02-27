@@ -50,8 +50,8 @@ public class PlayerController : MonoBehaviour
             UpdateMovement();           
         }
 
-        if (state != States.interacting)
-        {
+        //if (state != States.interacting)
+        //{
             InteractCheck();
 
             if (Input.GetMouseButtonUp(0)
@@ -59,11 +59,11 @@ public class PlayerController : MonoBehaviour
             {
                 interactObj.Interact();
             }
-        }
-        else
-        {
-            interactObj = null;
-        }
+        //}
+        //else
+        //{
+        //    interactObj = null;
+        //}
 
         //cursorImage.enabled = state != States.interacting;
         //documentPrefab.SetActive(hasDocument);

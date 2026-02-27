@@ -20,7 +20,7 @@ public class CamFocusController : MonoBehaviour
         else
             Destroy(this);
 
-        defaultPos = transform.position;
+        defaultPos = this.transform.localPosition;
         focusPos = defaultPos;
     }
 
@@ -45,6 +45,6 @@ public class CamFocusController : MonoBehaviour
     {
         print("Resetting Focus");
         focusPos = defaultPos;
-        transform.position = focusPos;
+        transform.localPosition = focusPos;
     }
 }
