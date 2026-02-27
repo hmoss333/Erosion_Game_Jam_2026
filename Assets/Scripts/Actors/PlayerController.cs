@@ -127,4 +127,10 @@ public class PlayerController : MonoBehaviour
     {
         state = setState;
     }
+
+    public void SetPosition(Transform targetPos)
+    {
+        transform.position = targetPos.position;
+        transform.rotation = targetPos.rotation;
+    }
 }

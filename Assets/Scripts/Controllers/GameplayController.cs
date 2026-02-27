@@ -6,7 +6,7 @@ public class GameplayController : MonoBehaviour
 {
     public static GameplayController instance;
 
-    public int cycleNum;
+    public int cycleNum { get; private set; }
 
 
     private void Start()
@@ -16,6 +16,7 @@ public class GameplayController : MonoBehaviour
         else
             instance = this;
 
+        cycleNum = 0;
         FadeController.instance.StartFade(0.0f, 3f);
     }
 

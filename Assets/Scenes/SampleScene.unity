@@ -7373,43 +7373,83 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5882105566044553854, guid: a145678c6ae9845b9a71495a4d9ed516, type: 3}
       propertyPath: dialogueObjs.Array.data[0].lines.Array.size
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5882105566044553854, guid: a145678c6ae9845b9a71495a4d9ed516, type: 3}
       propertyPath: dialogueObjs.Array.data[1].lines.Array.size
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5882105566044553854, guid: a145678c6ae9845b9a71495a4d9ed516, type: 3}
       propertyPath: dialogueObjs.Array.data[2].lines.Array.size
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5882105566044553854, guid: a145678c6ae9845b9a71495a4d9ed516, type: 3}
       propertyPath: dialogueObjs.Array.data[3].lines.Array.size
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5882105566044553854, guid: a145678c6ae9845b9a71495a4d9ed516, type: 3}
       propertyPath: dialogueObjs.Array.data[4].lines.Array.size
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5882105566044553854, guid: a145678c6ae9845b9a71495a4d9ed516, type: 3}
       propertyPath: dialogueObjs.Array.data[0].lines.Array.data[0]
       value: Cycle 0
       objectReference: {fileID: 0}
     - target: {fileID: 5882105566044553854, guid: a145678c6ae9845b9a71495a4d9ed516, type: 3}
+      propertyPath: dialogueObjs.Array.data[0].lines.Array.data[1]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5882105566044553854, guid: a145678c6ae9845b9a71495a4d9ed516, type: 3}
+      propertyPath: dialogueObjs.Array.data[0].lines.Array.data[2]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5882105566044553854, guid: a145678c6ae9845b9a71495a4d9ed516, type: 3}
       propertyPath: dialogueObjs.Array.data[1].lines.Array.data[0]
       value: Cycle 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5882105566044553854, guid: a145678c6ae9845b9a71495a4d9ed516, type: 3}
+      propertyPath: dialogueObjs.Array.data[1].lines.Array.data[1]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5882105566044553854, guid: a145678c6ae9845b9a71495a4d9ed516, type: 3}
+      propertyPath: dialogueObjs.Array.data[1].lines.Array.data[2]
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5882105566044553854, guid: a145678c6ae9845b9a71495a4d9ed516, type: 3}
       propertyPath: dialogueObjs.Array.data[2].lines.Array.data[0]
       value: Cycle 2
       objectReference: {fileID: 0}
     - target: {fileID: 5882105566044553854, guid: a145678c6ae9845b9a71495a4d9ed516, type: 3}
+      propertyPath: dialogueObjs.Array.data[2].lines.Array.data[1]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5882105566044553854, guid: a145678c6ae9845b9a71495a4d9ed516, type: 3}
+      propertyPath: dialogueObjs.Array.data[2].lines.Array.data[2]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5882105566044553854, guid: a145678c6ae9845b9a71495a4d9ed516, type: 3}
       propertyPath: dialogueObjs.Array.data[3].lines.Array.data[0]
       value: Cycle 3
       objectReference: {fileID: 0}
     - target: {fileID: 5882105566044553854, guid: a145678c6ae9845b9a71495a4d9ed516, type: 3}
+      propertyPath: dialogueObjs.Array.data[3].lines.Array.data[1]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5882105566044553854, guid: a145678c6ae9845b9a71495a4d9ed516, type: 3}
+      propertyPath: dialogueObjs.Array.data[3].lines.Array.data[2]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5882105566044553854, guid: a145678c6ae9845b9a71495a4d9ed516, type: 3}
       propertyPath: dialogueObjs.Array.data[4].lines.Array.data[0]
       value: Cycle 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5882105566044553854, guid: a145678c6ae9845b9a71495a4d9ed516, type: 3}
+      propertyPath: dialogueObjs.Array.data[4].lines.Array.data[1]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5882105566044553854, guid: a145678c6ae9845b9a71495a4d9ed516, type: 3}
+      propertyPath: dialogueObjs.Array.data[4].lines.Array.data[2]
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5882105566044553854, guid: a145678c6ae9845b9a71495a4d9ed516, type: 3}
       propertyPath: m_OnTrigger.m_PersistentCalls.m_Calls.Array.size

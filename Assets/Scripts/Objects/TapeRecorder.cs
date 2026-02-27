@@ -6,7 +6,6 @@ using UnityEngine;
 public class TapeRecorder : InteractObject
 {
     [SerializeField] List<DialogueObj> dialogueObjs;
-    [SerializeField] int cycleNum;
 
     Coroutine playRecordingRoutine;
 
@@ -15,9 +14,8 @@ public class TapeRecorder : InteractObject
     {
         if (active)
         {
-            PlayerController.instance.SetState(PlayerController.States.interacting);
             base.Interact();
-            print("TODO: Implement dialogue system and display each line on button press");
+
             StartPlayRecordingRoutine();
             m_OnTrigger.Invoke();
         }
@@ -36,11 +34,11 @@ public class TapeRecorder : InteractObject
         int i = 0;
         while (true)
         {
-            DialogueController.instance.UpdateText(dialogueObjs[cycleNum].lines[i], false);
+            DialogueController.instance.UpdateText(dialogueObjs[GameplayController.instance.cycleNum].lines[i], false);
             if (Input.GetMouseButtonDown(0))
             {
                 i++;
-                if (i >= dialogueObjs[cycleNum].lines.Length)
+                if (i >= dialogueObjs[GameplayController.instance.cycleNum].lines.Length)
                     break;
             }
             yield return null;
