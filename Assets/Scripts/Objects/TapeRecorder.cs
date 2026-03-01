@@ -6,13 +6,15 @@ using UnityEngine;
 public class TapeRecorder : InteractObject
 {
     [SerializeField] List<DialogueObj> dialogueObjs;
+    [SerializeField] AudioClip playbackClip;
 
     Coroutine playRecordingRoutine;
 
 
+
     public override void Interact()
     {
-        if (active)
+        if (active && playRecordingRoutine == null)
         {
             base.Interact();
 
@@ -31,6 +33,14 @@ public class TapeRecorder : InteractObject
     {
         PlayerController.instance.SetState(PlayerController.States.interacting);
 
+        while (audioSource.isPlaying)
+            yield return null;
+
+        audioSource.Stop();
+        audioSource.clip = playbackClip;
+        audioSource.loop = true;
+        audioSource.Play();
+
         int i = 0;
         while (true)
         {
@@ -43,6 +53,10 @@ public class TapeRecorder : InteractObject
             }
             yield return null;
         }
+
+        audioSource.Stop();
+        audioSource.loop = false;
+        audioSource.PlayOneShot(interactClip);
 
         active = false;
         DialogueController.instance.UpdateText(string.Empty, false);

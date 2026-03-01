@@ -27,6 +27,10 @@ public class RadioLock : InteractObject
     public override void Activate()
     {
         base.Activate();
+
+        audioSource.Stop();
+        audioSource.PlayOneShot(interactClip);
+
         m_OnTrigger.Invoke();
     }
 }

@@ -17,8 +17,7 @@ public class Radio : InteractObject
     [SerializeField] TMP_Text radioText;
     [SerializeField] float rotateSpeed;
     private float focusTime = 0f;
-    [SerializeField] AudioSource audioSource;
-    [SerializeField] AudioClip targetAudio, staticAudio, badAudio;
+    [SerializeField] AudioClip targetAudio, staticAudio;
 
     bool triggered;
 
@@ -41,6 +40,7 @@ public class Radio : InteractObject
 
     public void InitializeRadio()
     {
+        active = false;
         interacting = false;
         triggered = false;
         audioSource.clip = staticAudio;

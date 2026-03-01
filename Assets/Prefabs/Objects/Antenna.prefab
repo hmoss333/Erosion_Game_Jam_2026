@@ -222,8 +222,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 1, z: 0.5}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.5, y: 0.25, z: 0.35}
+  m_Center: {x: 0, y: 0.125, z: 0}
 --- !u!82 &5645434632681279395
 AudioSource:
   m_ObjectHideFlags: 0
@@ -335,10 +335,12 @@ MonoBehaviour:
   active: 1
   highlighted: 0
   interacting: 0
+  audioSource: {fileID: 5645434632681279395}
+  interactClip: {fileID: 8300000, guid: b4dd2310a58c84b4586e3dbcef3363ec, type: 3}
   m_OnTrigger:
     m_PersistentCalls:
       m_Calls: []
-  speed: 2
+  speed: 3
   currentValue: 0
   targetValue: 0
   offset: 0.5
