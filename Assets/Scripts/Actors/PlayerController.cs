@@ -36,22 +36,19 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         state = States.idle;
         hasDocument = false;
-
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (state == States.idle)
+        if (!GameplayController.instance.isPaused)
         {
-            UpdateLook();
-            UpdateMovement();           
-        }
+            if (state == States.idle)
+            {
+                UpdateLook();
+                UpdateMovement();
+            }
 
-        //if (state != States.interacting)
-        //{
             InteractCheck();
 
             if (Input.GetMouseButtonUp(0)
@@ -59,14 +56,7 @@ public class PlayerController : MonoBehaviour
             {
                 interactObj.Interact();
             }
-        //}
-        //else
-        //{
-        //    interactObj = null;
-        //}
-
-        //cursorImage.enabled = state != States.interacting;
-        //documentPrefab.SetActive(hasDocument);
+        }
     }
 
     void UpdateLook()
