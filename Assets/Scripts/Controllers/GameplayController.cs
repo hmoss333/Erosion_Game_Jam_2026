@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Events;
 using System.Linq;
 using TMPro;
@@ -15,6 +16,9 @@ public class GameplayController : MonoBehaviour
     [SerializeField] TMP_Text documentText;
     [SerializeField] AudioSource ambientAudioSource;
 
+    [SerializeField] GameObject pauseMenu;
+    public bool isPaused { get; private set; }
+
     [Header("Final Cycle Triggers")]
     public UnityEvent m_OnTrigger = new UnityEvent();
 
@@ -26,10 +30,29 @@ public class GameplayController : MonoBehaviour
         else
             instance = this;
 
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
         environmentalObjs = FindGameObjectsInLayer(7);
+
         cycleNum = 0;
+        isPaused = false;
+
         GenerateNewCode(); //Generate a random code at the start of a session
+
         FadeController.instance.StartFade(0.0f, 3f);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape) && PlayerController.instance.state != PlayerController.States.interacting)
+        {
+            isPaused = !isPaused;
+        }
+
+        Cursor.lockState = isPaused ? CursorLockMode.None : CursorLockMode.Locked;
+        Cursor.visible = isPaused;
+        pauseMenu.SetActive(isPaused);
     }
 
     GameObject[] FindGameObjectsInLayer(int layer)
@@ -90,5 +113,17 @@ public class GameplayController : MonoBehaviour
     {
         documentText.text = docText;
         print("Updated document text");
+    }
+
+
+    //Pause Menu Functions
+    public void ResumeGame()
+    {
+        isPaused = false;
+    }
+
+    public void ExitGame()
+    {
+        SceneManager.LoadSceneAsync(0);
     }
 }

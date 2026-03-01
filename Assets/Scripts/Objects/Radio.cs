@@ -111,14 +111,5 @@ public class Radio : InteractObject
         base.Interact();
         interacting = !interacting;
         PlayerController.instance.SetState(interacting ? PlayerController.States.interacting : PlayerController.States.idle);
-
-        //if (interacting)
-        //{
-        //    CamFocusController.instance.FocusTarget(focusPoint);
-        //}
-        //else
-        //{
-        //    CamFocusController.instance.FocusReset();
-        //}
     }
 }
