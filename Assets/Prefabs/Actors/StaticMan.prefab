@@ -160,7 +160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e82b1ed08752243e7a8895b0b26db4a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 3
   spawnStaticMan: 0
   baseModel: {fileID: 1062753183313785340}
 --- !u!114 &179794006302760829
