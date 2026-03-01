@@ -335,6 +335,8 @@ MonoBehaviour:
   active: 1
   highlighted: 0
   interacting: 0
+  audioSource: {fileID: 5645434632681279395}
+  interactClip: {fileID: 8300000, guid: b4dd2310a58c84b4586e3dbcef3363ec, type: 3}
   m_OnTrigger:
     m_PersistentCalls:
       m_Calls: []

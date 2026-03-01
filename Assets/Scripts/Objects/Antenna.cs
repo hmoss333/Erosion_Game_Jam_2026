@@ -9,8 +9,6 @@ public class Antenna : InteractObject
     float checkTime;
     [SerializeField] GameObject miniGameUI, miniGameLight;
     [SerializeField] Slider miniGameSlider;
-    AudioSource audioSource;
-    [SerializeField] AudioClip activateClip;
     bool triggered = false;
 
 
@@ -60,27 +58,30 @@ public class Antenna : InteractObject
     public void InitializeAntenna()
     {
         triggered = false;
+        interacting = false;
         targetValue = Random.Range(4.5f, 10f);
         miniGameSlider.maxValue = 10f;
-        audioSource = GetComponent<AudioSource>();
-        audioSource.clip = activateClip;
     }
 
     public override void Interact()
     {
-        base.Interact();
-        interacting = !interacting;
-        PlayerController.instance.SetState(interacting ? PlayerController.States.interacting : PlayerController.States.idle);
-        currentValue = 0f;
-        checkTime = 0f;
+        if (!triggered)
+        {
+            //base.Interact();
+            interacting = !interacting;
+            PlayerController.instance.SetState(interacting ? PlayerController.States.interacting : PlayerController.States.idle);
+            currentValue = 0f;
+            checkTime = 0f;
+        }
     }
 
     void TurnOn()
     {
         miniGameLight.GetComponent<Renderer>().material.color = Color.green;
-        audioSource.Play();
+        audioSource.PlayOneShot(interactClip);
         triggered = true;
-        Interact();
+        interacting = false;
+        PlayerController.instance.SetState(PlayerController.States.idle);
         m_OnTrigger.Invoke();
     }
 }

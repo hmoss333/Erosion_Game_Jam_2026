@@ -286,6 +286,8 @@ MonoBehaviour:
   active: 0
   highlighted: 0
   interacting: 0
+  audioSource: {fileID: 8711431195882515309}
+  interactClip: {fileID: 8300000, guid: 4ebc3e2dc9bcc46b2b51b5735bbc3e31, type: 3}
   m_OnTrigger:
     m_PersistentCalls:
       m_Calls: []
@@ -748,6 +750,8 @@ MonoBehaviour:
   active: 0
   highlighted: 0
   interacting: 0
+  audioSource: {fileID: 8711431195882515309}
+  interactClip: {fileID: 8300000, guid: 4ebc3e2dc9bcc46b2b51b5735bbc3e31, type: 3}
   m_OnTrigger:
     m_PersistentCalls:
       m_Calls: []
@@ -1038,6 +1042,8 @@ MonoBehaviour:
   active: 0
   highlighted: 0
   interacting: 0
+  audioSource: {fileID: 8711431195882515309}
+  interactClip: {fileID: 8300000, guid: 4ebc3e2dc9bcc46b2b51b5735bbc3e31, type: 3}
   m_OnTrigger:
     m_PersistentCalls:
       m_Calls: []
@@ -1369,6 +1375,8 @@ MonoBehaviour:
   active: 0
   highlighted: 0
   interacting: 0
+  audioSource: {fileID: 8711431195882515309}
+  interactClip: {fileID: 8300000, guid: 4ebc3e2dc9bcc46b2b51b5735bbc3e31, type: 3}
   m_OnTrigger:
     m_PersistentCalls:
       m_Calls: []
@@ -1659,6 +1667,8 @@ MonoBehaviour:
   active: 0
   highlighted: 0
   interacting: 0
+  audioSource: {fileID: 8711431195882515309}
+  interactClip: {fileID: 8300000, guid: 4ebc3e2dc9bcc46b2b51b5735bbc3e31, type: 3}
   m_OnTrigger:
     m_PersistentCalls:
       m_Calls: []
@@ -2121,6 +2131,8 @@ MonoBehaviour:
   active: 0
   highlighted: 0
   interacting: 0
+  audioSource: {fileID: 8711431195882515309}
+  interactClip: {fileID: 8300000, guid: 4ebc3e2dc9bcc46b2b51b5735bbc3e31, type: 3}
   m_OnTrigger:
     m_PersistentCalls:
       m_Calls: []
@@ -2411,6 +2423,8 @@ MonoBehaviour:
   active: 0
   highlighted: 0
   interacting: 0
+  audioSource: {fileID: 8711431195882515309}
+  interactClip: {fileID: 8300000, guid: 4ebc3e2dc9bcc46b2b51b5735bbc3e31, type: 3}
   m_OnTrigger:
     m_PersistentCalls:
       m_Calls: []
@@ -2529,6 +2543,8 @@ MonoBehaviour:
   active: 0
   highlighted: 0
   interacting: 0
+  audioSource: {fileID: 8711431195882515309}
+  interactClip: {fileID: 8300000, guid: 4ebc3e2dc9bcc46b2b51b5735bbc3e31, type: 3}
   m_OnTrigger:
     m_PersistentCalls:
       m_Calls: []
@@ -2991,6 +3007,8 @@ MonoBehaviour:
   active: 0
   highlighted: 0
   interacting: 0
+  audioSource: {fileID: 8711431195882515309}
+  interactClip: {fileID: 8300000, guid: 4ebc3e2dc9bcc46b2b51b5735bbc3e31, type: 3}
   m_OnTrigger:
     m_PersistentCalls:
       m_Calls: []
@@ -3109,6 +3127,8 @@ MonoBehaviour:
   active: 0
   highlighted: 0
   interacting: 0
+  audioSource: {fileID: 8711431195882515309}
+  interactClip: {fileID: 8300000, guid: 4ebc3e2dc9bcc46b2b51b5735bbc3e31, type: 3}
   m_OnTrigger:
     m_PersistentCalls:
       m_Calls: []

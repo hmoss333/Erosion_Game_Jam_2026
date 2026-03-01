@@ -723,7 +723,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -2010,9 +2010,23 @@ MonoBehaviour:
   active: 0
   highlighted: 0
   interacting: 0
+  audioSource: {fileID: 279808582738888007}
+  interactClip: {fileID: 0}
   m_OnTrigger:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: RadioLock, Assembly-CSharp
+        m_MethodName: Activate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   focusPoint: {fileID: 7638178256451793287}
   arrowLeft: {fileID: 202769325111620342}
   arrowRight: {fileID: 5851677916999978882}
@@ -2022,10 +2036,8 @@ MonoBehaviour:
   targetFrequency: 0
   radioText: {fileID: 986061863756267454}
   rotateSpeed: 5
-  audioSource: {fileID: 279808582738888007}
-  targetAudio: {fileID: 0}
-  staticAudio: {fileID: 0}
-  badAudio: {fileID: 0}
+  targetAudio: {fileID: 8300000, guid: fb7ce3dbdbebb4babb5a338d3c2884b4, type: 3}
+  staticAudio: {fileID: 8300000, guid: ea24f109dd7d040ed9c875fa3611d5c0, type: 3}
 --- !u!82 &279808582738888007
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2082,7 +2094,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0

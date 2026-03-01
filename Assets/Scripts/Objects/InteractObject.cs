@@ -10,6 +10,8 @@ public class InteractObject : MonoBehaviour
 
     public bool highlighted; //testing
     public bool interacting;
+    public AudioSource audioSource;
+    public AudioClip interactClip;
 
 
     [Header("Event Triggers")]
@@ -37,5 +39,8 @@ public class InteractObject : MonoBehaviour
     public virtual void Interact()
     {
         print($"Interacted with {this.gameObject.name}");
+
+        audioSource.Stop();
+        audioSource.PlayOneShot(interactClip);
     }
 }

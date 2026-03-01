@@ -13,6 +13,7 @@ public class GameplayController : MonoBehaviour
     public string doorCode { get; private set; }
     public int cycleNum { get; private set; }
     [SerializeField] TMP_Text documentText;
+    [SerializeField] AudioSource ambientAudioSource;
 
     [Header("Final Cycle Triggers")]
     public UnityEvent m_OnTrigger = new UnityEvent();
@@ -53,6 +54,11 @@ public class GameplayController : MonoBehaviour
     {
         cycleNum++;
 
+        //Restart ambient audio
+        ambientAudioSource.Stop();
+        ambientAudioSource.Play();
+
+        //Update all wall textures
         foreach (GameObject envObj in environmentalObjs)
         {
             List<Material> mats = envObj.GetComponent<Renderer>().materials.ToList();
@@ -60,6 +66,7 @@ public class GameplayController : MonoBehaviour
             envObj.GetComponent<Renderer>().materials = mats.ToArray();
         }
 
+        //If completing the last cycle, trigger final hallway
         if (cycleNum >= 3)
         {
             m_OnTrigger.Invoke();
