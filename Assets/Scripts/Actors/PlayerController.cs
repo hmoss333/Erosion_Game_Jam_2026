@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] Transform camTransform;
     [SerializeField] float mouseSensitivity = 3f;
-    [SerializeField] float checkDist = 10f;
+    [SerializeField] float checkDist = 5f;
     [SerializeField] float speed;
     [SerializeField] LayerMask layer;
     public InteractObject interactObj;// { get; private set; }

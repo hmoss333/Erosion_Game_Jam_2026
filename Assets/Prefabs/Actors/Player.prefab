@@ -318,8 +318,8 @@ MonoBehaviour:
   state: 0
   camTransform: {fileID: 2578745416650087860}
   mouseSensitivity: 3
-  checkDist: 10
-  speed: 2.25
+  checkDist: 2.5
+  speed: 2
   layer:
     serializedVersion: 2
     m_Bits: 64
