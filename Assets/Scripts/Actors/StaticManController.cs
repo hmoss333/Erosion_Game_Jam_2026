@@ -10,6 +10,7 @@ public class StaticManController : MonoBehaviour
     [SerializeField] bool spawnStaticMan;
     ObjectFlicker flickerEffect;
     [SerializeField] GameObject baseModel;
+    [SerializeField] Transform focusPoint;
 
     Rigidbody rb;
     Animator animator;
@@ -36,16 +37,6 @@ public class StaticManController : MonoBehaviour
     {
         if (spawnStaticMan)
         {
-            if (isPlaying("Standing"))
-            {
-                PlayerController.instance.SetState(PlayerController.States.interacting);
-                PlayerController.instance.transform.LookAt(this.transform);
-            }
-            else
-            {
-                PlayerController.instance.SetState(PlayerController.States.idle);
-            }
-
             flickerEffect.StartFlicker(0.75f);
 
             rb.velocity = transform.forward * speed;
@@ -77,7 +68,7 @@ public class StaticManController : MonoBehaviour
     IEnumerator CatchPlayer()
     {
         PlayerController.instance.SetState(PlayerController.States.interacting);
-        PlayerController.instance.transform.LookAt(this.transform);
+        CamFocusController.instance.FocusTarget(focusPoint);
 
         animator.SetBool("Catch", true);
 

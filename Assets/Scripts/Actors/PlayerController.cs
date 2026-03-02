@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!GameplayController.instance.isPaused)
+        if (!GameplayController.instance.isPaused && !CamFocusController.instance.isFocusing)
         {
             if (state == States.idle)
             {
@@ -50,6 +50,7 @@ public class PlayerController : MonoBehaviour
             }
 
             InteractCheck();
+            rb.isKinematic = state == States.interacting;
 
             if (Input.GetMouseButtonUp(0)
                 && interactObj != null)

@@ -130,6 +130,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 429100695730596678}
+  - {fileID: 445743687060304781}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -161,9 +162,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e82b1ed08752243e7a8895b0b26db4a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 2.75
   spawnStaticMan: 0
   baseModel: {fileID: 1062753183313785340}
+  focusPoint: {fileID: 445743687060304781}
   audioSource: {fileID: 4356337984210561480}
   catchPlayerClip: {fileID: 8300000, guid: 3be95760e14f2493bad5f6cf8a5dfcbe, type: 3}
 --- !u!114 &179794006302760829
@@ -996,6 +998,37 @@ Transform:
   m_Father: {fileID: 1820000256188789500}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1884968129807484993
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 445743687060304781}
+  m_Layer: 0
+  m_Name: FocusPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &445743687060304781
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1884968129807484993}
+  m_LocalRotation: {x: 0, y: 0.9940564, z: 0.10886683, w: 0}
+  m_LocalPosition: {x: 0, y: 0.25, z: 2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 179794006302760065}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: -12.5, y: 180, z: 0}
 --- !u!1 &1916447588085499102
 GameObject:
   m_ObjectHideFlags: 0

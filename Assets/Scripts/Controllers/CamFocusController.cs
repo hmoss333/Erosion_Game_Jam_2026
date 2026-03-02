@@ -6,6 +6,7 @@ public class CamFocusController : MonoBehaviour
 {
     public static CamFocusController instance;
 
+    public bool isFocusing;
     [SerializeField] float moveTime;
     [SerializeField] Vector3 focusPos;
     [SerializeField] Vector3 defaultPos;
@@ -20,13 +21,14 @@ public class CamFocusController : MonoBehaviour
         else
             Destroy(this);
 
+        isFocusing = false;
         defaultPos = this.transform.localPosition;
         focusPos = defaultPos;
     }
 
     private void Update()
     {
-        if (PlayerController.instance.state == PlayerController.States.interacting)
+        if (isFocusing)//PlayerController.instance.state == PlayerController.States.interacting)
         {
             transform.position = Vector3.Lerp(transform.position, focusPos, focusPos != defaultPos ? moveTime * Time.deltaTime : 1f);
             transform.rotation = Quaternion.Lerp(transform.rotation, targetRot, focusPos != defaultPos ? moveTime * Time.deltaTime : 1f);
@@ -36,6 +38,7 @@ public class CamFocusController : MonoBehaviour
     public void FocusTarget(Transform target)
     {
         print($"Focusing {target.name}");
+        isFocusing = true;
         targetPos = target.position;
         targetRot = target.rotation;
         focusPos = targetPos;
@@ -44,6 +47,7 @@ public class CamFocusController : MonoBehaviour
     public void FocusReset()
     {
         print("Resetting Focus");
+        isFocusing = false;
         focusPos = defaultPos;
         transform.localPosition = focusPos;
     }
