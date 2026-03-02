@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class StaticManController : MonoBehaviour
 {
@@ -12,6 +13,10 @@ public class StaticManController : MonoBehaviour
 
     Rigidbody rb;
     Animator animator;
+
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip catchPlayerClip;
+    Coroutine catchPlayerRoutine;
 
 
     private void Start()
@@ -31,6 +36,16 @@ public class StaticManController : MonoBehaviour
     {
         if (spawnStaticMan)
         {
+            if (isPlaying("Standing"))
+            {
+                PlayerController.instance.SetState(PlayerController.States.interacting);
+                PlayerController.instance.transform.LookAt(this.transform);
+            }
+            else
+            {
+                PlayerController.instance.SetState(PlayerController.States.idle);
+            }
+
             flickerEffect.StartFlicker(0.75f);
 
             rb.velocity = transform.forward * speed;
@@ -40,12 +55,15 @@ public class StaticManController : MonoBehaviour
             float dist = Vector3.Distance(transform.position, PlayerController.instance.transform.position);
             if (dist <= 2f)
             {
-                print("Reached player");
+                print("Caught player");
+                speed = 0f;
+                if (catchPlayerRoutine == null)
+                    catchPlayerRoutine = StartCoroutine(CatchPlayer());
             }
         }
 
         baseModel.SetActive(spawnStaticMan);
-        rb.isKinematic = !spawnStaticMan || isPlaying("Standing");
+        rb.isKinematic = !spawnStaticMan || isPlaying("Standing") || catchPlayerRoutine != null;
     }
 
     public bool isPlaying(string stateName)
@@ -54,5 +72,25 @@ public class StaticManController : MonoBehaviour
             return true;
         else
             return false;
+    }
+
+    IEnumerator CatchPlayer()
+    {
+        PlayerController.instance.SetState(PlayerController.States.interacting);
+        PlayerController.instance.transform.LookAt(this.transform);
+
+        animator.SetBool("Catch", true);
+
+        audioSource.PlayOneShot(catchPlayerClip);
+
+        FadeController.instance.StartFade(1.0f, 2.5f);
+
+        while (FadeController.instance.isFading)
+            yield return null;
+
+        yield return new WaitForSeconds(2.5f);
+
+        SceneManager.LoadSceneAsync(0);
+        catchPlayerRoutine = null;
     }
 }
