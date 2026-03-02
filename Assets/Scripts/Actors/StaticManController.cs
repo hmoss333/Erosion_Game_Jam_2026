@@ -37,7 +37,7 @@ public class StaticManController : MonoBehaviour
     {
         if (spawnStaticMan)
         {
-            flickerEffect.StartFlicker(0.75f);
+            flickerEffect.StartFlicker();
 
             rb.velocity = transform.forward * speed;
             Vector3 playerPos = new Vector3(PlayerController.instance.transform.position.x, transform.position.y, PlayerController.instance.transform.position.z);
@@ -47,7 +47,10 @@ public class StaticManController : MonoBehaviour
             if (dist <= 2f)
             {
                 print("Caught player");
+
                 speed = 0f;
+                animator.SetBool("Catch", true);
+
                 if (catchPlayerRoutine == null)
                     catchPlayerRoutine = StartCoroutine(CatchPlayer());
             }
@@ -70,9 +73,10 @@ public class StaticManController : MonoBehaviour
         PlayerController.instance.SetState(PlayerController.States.interacting);
         CamFocusController.instance.FocusTarget(focusPoint);
 
-        animator.SetBool("Catch", true);
-
         audioSource.PlayOneShot(catchPlayerClip);
+
+        while (isPlaying("Catch"))
+            yield return null;
 
         FadeController.instance.StartFade(1.0f, 2.5f);
 
@@ -81,6 +85,7 @@ public class StaticManController : MonoBehaviour
 
         yield return new WaitForSeconds(2.5f);
 
+        flickerEffect.StopFlicker();
         SceneManager.LoadSceneAsync(0);
         catchPlayerRoutine = null;
     }

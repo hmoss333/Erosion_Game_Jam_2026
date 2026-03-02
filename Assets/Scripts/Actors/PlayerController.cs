@@ -13,11 +13,12 @@ public class PlayerController : MonoBehaviour
     public States state;
 
     [SerializeField] Transform camTransform;
+    [SerializeField] GameObject reticule;
     [SerializeField] float mouseSensitivity = 3f;
     [SerializeField] float checkDist = 5f;
     [SerializeField] float speed;
     [SerializeField] LayerMask layer;
-    public InteractObject interactObj;// { get; private set; }
+    public InteractObject interactObj { get; private set; }
 
     public bool hasDocument { get; private set; }
 
@@ -58,6 +59,8 @@ public class PlayerController : MonoBehaviour
                 interactObj.Interact();
             }
         }
+
+        reticule.SetActive(!GameplayController.instance.isPaused && state != States.interacting);
     }
 
     void UpdateLook()

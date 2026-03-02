@@ -335,13 +335,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 0
   camTransform: {fileID: 2578745416650087860}
+  reticule: {fileID: 7950511917776223598}
   mouseSensitivity: 3
   checkDist: 2.5
   speed: 2
   layer:
     serializedVersion: 2
     m_Bits: 64
-  interactObj: {fileID: 0}
 --- !u!1 &7950511917776223598
 GameObject:
   m_ObjectHideFlags: 0

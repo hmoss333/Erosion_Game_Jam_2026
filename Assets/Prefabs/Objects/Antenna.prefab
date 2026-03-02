@@ -347,7 +347,6 @@ MonoBehaviour:
   miniGameUI: {fileID: 6151713725731708703}
   miniGameLight: {fileID: 6151713724702316296}
   miniGameSlider: {fileID: 6151713724454586509}
-  activateClip: {fileID: 8300000, guid: b4dd2310a58c84b4586e3dbcef3363ec, type: 3}
 --- !u!1 &1303014477440943038
 GameObject:
   m_ObjectHideFlags: 0
@@ -1265,7 +1264,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e16bcd5c587574a31b0d309679d0ddc9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0c11845c5b1c15e4184a9f6c057b246b, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
