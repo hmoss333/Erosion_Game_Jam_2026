@@ -33,4 +33,9 @@ public class RadioLock : InteractObject
 
         m_OnTrigger.Invoke();
     }
+
+    public void ResetLock()
+    {
+        active = false;
+    }
 }
