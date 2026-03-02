@@ -28,7 +28,7 @@ public class Antenna : InteractObject
             {
                 miniGameLight.GetComponent<Renderer>().material.color = Color.yellow;
                 checkTime += Time.deltaTime;
-                if (checkTime >= 2.5f)
+                if (checkTime >= 1.5f)
                 {
                     interacting = false;
                     TurnOn();

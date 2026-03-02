@@ -42,6 +42,6 @@ public class Door : InteractObject
     {
         active = false;
         collider.enabled = true;
-        doorRotation.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+        doorRotation.transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
     }
 }
