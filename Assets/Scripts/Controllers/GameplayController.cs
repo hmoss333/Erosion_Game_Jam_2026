@@ -11,6 +11,7 @@ public class GameplayController : MonoBehaviour
     public static GameplayController instance;
     [SerializeField] GameObject[] environmentalObjs;
     [SerializeField] Material[] environmentalMats;
+    [SerializeField] GameObject staticRoom, finallHallway;
     public string doorCode { get; private set; }
     public int cycleNum { get; private set; }
     [SerializeField] TMP_Text documentText;
@@ -34,6 +35,9 @@ public class GameplayController : MonoBehaviour
         Cursor.visible = false;
 
         environmentalObjs = FindGameObjectsInLayer(7);
+
+        staticRoom.SetActive(true);
+        finallHallway.SetActive(false);
 
         cycleNum = 0;
         isPaused = false;
@@ -81,18 +85,23 @@ public class GameplayController : MonoBehaviour
         ambientAudioSource.Stop();
         ambientAudioSource.Play();
 
-        //Update all wall textures
-        foreach (GameObject envObj in environmentalObjs)
-        {
-            List<Material> mats = envObj.GetComponent<Renderer>().materials.ToList();
-            mats[0] = environmentalMats[cycleNum - 1];
-            envObj.GetComponent<Renderer>().materials = mats.ToArray();
-        }
+        UpdateMats(cycleNum);
 
         //If completing the last cycle, trigger final hallway
         if (cycleNum >= 3)
         {
             m_OnTrigger.Invoke();
+        }
+    }
+
+    public void UpdateMats(int cycle)
+    {
+        //Update all wall textures
+        foreach (GameObject envObj in environmentalObjs)
+        {
+            List<Material> mats = envObj.GetComponent<Renderer>().materials.ToList();
+            mats[0] = environmentalMats[cycle - 1];
+            envObj.GetComponent<Renderer>().materials = mats.ToArray();
         }
     }
 
