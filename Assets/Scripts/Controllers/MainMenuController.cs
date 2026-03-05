@@ -21,7 +21,7 @@ public class MainMenuController : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
-        versionNumber.text = Application.version;
+        versionNumber.text = $"v{Application.version}";
 
         startingGame = false;
         startRoutine = null;
