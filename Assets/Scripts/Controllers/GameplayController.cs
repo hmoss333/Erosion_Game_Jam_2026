@@ -23,6 +23,8 @@ public class GameplayController : MonoBehaviour
     [Header("Final Cycle Triggers")]
     public UnityEvent m_OnTrigger = new UnityEvent();
 
+    [SerializeField] GameObject staticManTriggerZone;
+
 
     private void Start()
     {
@@ -36,6 +38,7 @@ public class GameplayController : MonoBehaviour
 
         environmentalObjs = FindGameObjectsInLayer(7);
 
+        staticManTriggerZone.SetActive(false);
         staticRoom.SetActive(true);
         finallHallway.SetActive(false);
 
@@ -86,6 +89,9 @@ public class GameplayController : MonoBehaviour
         ambientAudioSource.Play();
 
         UpdateMats(cycleNum);
+
+        if (cycleNum == 2)
+            staticManTriggerZone.SetActive(true);
 
         //If completing the last cycle, trigger final hallway
         if (cycleNum >= 3)

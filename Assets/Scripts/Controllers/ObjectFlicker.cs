@@ -21,6 +21,12 @@ public class ObjectFlicker : MonoBehaviour
             flickerRoutine = StartCoroutine(Blink());
     }
 
+    public void StartFlicker(float duration)
+    {
+        if (flickerRoutine == null)
+            flickerRoutine = StartCoroutine(Blink(duration));
+    }
+
     public void StopFlicker()
     {
         StopCoroutine(flickerRoutine);
@@ -36,5 +42,22 @@ public class ObjectFlicker : MonoBehaviour
             objToFlicker.SetActive(true);
             yield return new WaitForSeconds(Random.Range(0.0f, 0.1f));
         }
+    }
+
+    IEnumerator Blink(float duration)
+    {
+        float checkTime = 0f;
+        while (checkTime <= duration)
+        {
+            objToFlicker.SetActive(false);
+            yield return new WaitForSeconds(Random.Range(0.0f, 0.1f));
+            checkTime += 0.1f;
+            objToFlicker.SetActive(true);
+            yield return new WaitForSeconds(Random.Range(0.0f, 0.1f));
+            checkTime += 0.1f;
+        }
+
+        objToFlicker.SetActive(false);
+        flickerRoutine = null;
     }
 }

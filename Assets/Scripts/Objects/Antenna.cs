@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class Antenna : InteractObject
 {
@@ -10,6 +11,8 @@ public class Antenna : InteractObject
     [SerializeField] GameObject miniGameUI, miniGameLight;
     [SerializeField] Slider miniGameSlider;
     bool triggered = false;
+
+    [SerializeField] GameObject staticManTriggerZone;
 
 
     private void Start()
@@ -61,6 +64,7 @@ public class Antenna : InteractObject
         interacting = false;
         targetValue = Random.Range(4.5f, 10f);
         miniGameSlider.maxValue = 10f;
+        staticManTriggerZone.SetActive(false);
     }
 
     public override void Interact()
@@ -83,5 +87,8 @@ public class Antenna : InteractObject
         interacting = false;
         PlayerController.instance.SetState(PlayerController.States.idle);
         m_OnTrigger.Invoke();
+
+        if (GameplayController.instance.cycleNum == 1)
+            staticManTriggerZone.SetActive(true);
     }
 }
