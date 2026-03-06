@@ -51,7 +51,6 @@ public class PlayerController : MonoBehaviour
             }
 
             InteractCheck();
-            rb.isKinematic = state == States.interacting;
 
             if (Input.GetMouseButtonUp(0)
                 && interactObj != null)
@@ -60,6 +59,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+        rb.isKinematic = state == States.interacting || GameplayController.instance.isPaused;
         reticule.SetActive(!GameplayController.instance.isPaused && state != States.interacting);
     }
 

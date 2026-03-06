@@ -22855,7 +22855,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5882105566044553854, guid: a145678c6ae9845b9a71495a4d9ed516, type: 3}
       propertyPath: dialogueObjs.Array.data[1].lines.Array.size
-      value: 8
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 5882105566044553854, guid: a145678c6ae9845b9a71495a4d9ed516, type: 3}
       propertyPath: dialogueObjs.Array.data[2].lines.Array.size
@@ -22927,19 +22927,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5882105566044553854, guid: a145678c6ae9845b9a71495a4d9ed516, type: 3}
       propertyPath: dialogueObjs.Array.data[1].lines.Array.data[4]
-      value: I just need to keep going
+      value: There's something else here with me
       objectReference: {fileID: 0}
     - target: {fileID: 5882105566044553854, guid: a145678c6ae9845b9a71495a4d9ed516, type: 3}
       propertyPath: dialogueObjs.Array.data[1].lines.Array.data[5]
-      value: The steps are the same as before
+      value: Something in the static...
       objectReference: {fileID: 0}
     - target: {fileID: 5882105566044553854, guid: a145678c6ae9845b9a71495a4d9ed516, type: 3}
       propertyPath: dialogueObjs.Array.data[1].lines.Array.data[6]
-      value: They're always the same
+      value: I've seen it out of the corner of my eye
       objectReference: {fileID: 0}
     - target: {fileID: 5882105566044553854, guid: a145678c6ae9845b9a71495a4d9ed516, type: 3}
       propertyPath: dialogueObjs.Array.data[1].lines.Array.data[7]
-      value: I just need to make it through the door...
+      value: It's so tall. I don't know if its seen me, though
+      objectReference: {fileID: 0}
+    - target: {fileID: 5882105566044553854, guid: a145678c6ae9845b9a71495a4d9ed516, type: 3}
+      propertyPath: dialogueObjs.Array.data[1].lines.Array.data[8]
+      value: I just need to keep going
+      objectReference: {fileID: 0}
+    - target: {fileID: 5882105566044553854, guid: a145678c6ae9845b9a71495a4d9ed516, type: 3}
+      propertyPath: dialogueObjs.Array.data[1].lines.Array.data[9]
+      value: The steps are the same as before
       objectReference: {fileID: 0}
     - target: {fileID: 5882105566044553854, guid: a145678c6ae9845b9a71495a4d9ed516, type: 3}
       propertyPath: dialogueObjs.Array.data[2].lines.Array.data[0]
@@ -22971,6 +22979,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5882105566044553854, guid: a145678c6ae9845b9a71495a4d9ed516, type: 3}
       propertyPath: dialogueObjs.Array.data[2].lines.Array.data[7]
+      value: Just one more time through the door...
+      objectReference: {fileID: 0}
+    - target: {fileID: 5882105566044553854, guid: a145678c6ae9845b9a71495a4d9ed516, type: 3}
+      propertyPath: dialogueObjs.Array.data[2].lines.Array.data[8]
       value: Just one more time through the door...
       objectReference: {fileID: 0}
     - target: {fileID: 5882105566044553854, guid: a145678c6ae9845b9a71495a4d9ed516, type: 3}
@@ -23024,6 +23036,14 @@ PrefabInstance:
     - target: {fileID: 5882105566044553854, guid: a145678c6ae9845b9a71495a4d9ed516, type: 3}
       propertyPath: dialogueObjs.Array.data[4].lines.Array.data[2]
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5882105566044553854, guid: a145678c6ae9845b9a71495a4d9ed516, type: 3}
+      propertyPath: dialogueObjs.Array.data[1].lines.Array.data[10]
+      value: They're always the same
+      objectReference: {fileID: 0}
+    - target: {fileID: 5882105566044553854, guid: a145678c6ae9845b9a71495a4d9ed516, type: 3}
+      propertyPath: dialogueObjs.Array.data[1].lines.Array.data[11]
+      value: I just need to make it through the door...
       objectReference: {fileID: 0}
     - target: {fileID: 5882105566044553854, guid: a145678c6ae9845b9a71495a4d9ed516, type: 3}
       propertyPath: dialogueObjs.Array.data[3].lines.Array.data[10]
