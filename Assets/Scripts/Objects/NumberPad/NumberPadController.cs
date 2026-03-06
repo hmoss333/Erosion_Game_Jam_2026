@@ -13,6 +13,8 @@ public class NumberPadController : MonoBehaviour
     [SerializeField] string code;
     [SerializeField] string tempCode;
     bool hasTriggered;
+    [SerializeField] GameObject indicator;
+    Renderer indicatorRenderer;
 
     Coroutine startCodeCheckRoutine;
 
@@ -30,6 +32,9 @@ public class NumberPadController : MonoBehaviour
 
     private void Start()
     {
+        indicatorRenderer = indicator.GetComponent<Renderer>();
+        indicator.SetActive(false);
+
         InitializeLock();
     }
 
@@ -65,15 +70,22 @@ public class NumberPadController : MonoBehaviour
 
         if (tempCode == code)
         {
+            indicatorRenderer.material.color = Color.green;
             hasTriggered = true;
             m_OnTrigger.Invoke();
         }
         else
         {
+            indicatorRenderer.material.color = Color.red;
             tempCode = string.Empty;
         }
 
+
         displayText.text = string.Empty;
+        indicator.SetActive(true);
+        yield return new WaitForSeconds(0.5f);
+        indicator.SetActive(false);
+
         startCodeCheckRoutine = null;
     }
 }
