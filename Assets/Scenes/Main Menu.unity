@@ -2977,7 +2977,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Created for Pizza Doggy's Horror Jam #4 \n\nStory - Henry Moss\n\nGame
     Design - Henry Moss\n\nProgramming - Henry Moss\n\nLevel Design - Henry Moss\n\nAssets
-    - Various, courtesy of Unity Play Store\n\n"
+    - Various, courtesy of Unity Play Store\n\nPlaytesters - \nJacob Corrigan\nLinus
+    Corrigan"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 151e38c24b8ca4486997fe78026fced9, type: 2}
   m_sharedMaterial: {fileID: -1099266064948786653, guid: 151e38c24b8ca4486997fe78026fced9, type: 2}
@@ -3004,7 +3005,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 17.1
+  m_fontSize: 15.1
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
